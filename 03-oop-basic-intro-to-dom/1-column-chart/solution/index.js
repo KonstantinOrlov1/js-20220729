@@ -84,7 +84,11 @@ export default class ColumnChart {
       : "";
   }
 
-  update(data) {
+  update(data = []) {
+    if (!this.data.length) {
+      this.element.classList.add("column-chart_loading");
+    }
+
     this.data = data;
 
     this.subElements.body.innerHTML = this.getColumnBody();

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<meta charset="UTF-8" />
+
+<body>
+  <div id="root"></div>
+</body>
+
+<script>
+  class BaseComponent {
+    static keys () {
+      console.error('this is keys static method');
+    }
+
+    constructor () {
+      this.foo = 1;
+    }
+    render () {
+      console.error('BaseComponent render');
+    }
+
+    getSubElements () {
+      // cache
+    }
+
+    remove () {
+
+    }
+
+    destroy () {
+
+    }
+  }
+
+  //  this <---------------------(*)
+  class ColumnChart extends BaseComponent {
+    constructor(name) {
+      super();
+
+      this.name = name;
+    }
+
+    render () {
+      console.error('ColumnChart render');
+      super.render(); // render();
+    }
+  }
+
+  class Notification extends BaseComponent {
+    constructor(name) {
+      super();
+      this.name = name;
+    }
+  }
+
+  const columnChart = new ColumnChart('chart');
+  const notification = new Notification('notification');
+
+  console.error(columnChart);
+  console.error(notification);
+
+  ColumnChart.keys();
+</script>

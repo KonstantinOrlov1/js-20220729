@@ -38,4 +38,3 @@ export const createGetter2 = path => {
     return result;
   };
 };
-

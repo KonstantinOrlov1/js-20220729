@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+
+<body>
+<button id="btn">Click me maybe!</button>
+
+<div id="root"></div>
+
+</body>
+
+<script>
+
+</script>
+
+<script>
+  class Component {
+    constructor() {
+      this.color = 'green';
+      this.onClick = this.onClick.bind(this);
+    }
+
+    onClick (event) {
+      console.error(this.color);
+      console.error(event);
+    }
+
+    add () {
+      btn.addEventListener('click', this.onClick);
+    }
+
+    remove () {
+      btn.removeEventListener('click', this.onClick);
+    }
+  }
+
+  const obj = new Component();
+
+  obj.add();
+  // obj.remove();
+</script>
